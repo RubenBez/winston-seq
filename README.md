@@ -6,6 +6,8 @@
 [![NPM version][npm-v-image]][npm-url]
 [![NPM Downloads][npm-dm-image]][npm-url]
 
+Like winston-seq but supports https
+
 
 --------------------------------------------------------------------------------
 
