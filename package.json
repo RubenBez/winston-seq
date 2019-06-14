@@ -1,6 +1,6 @@
 {
-  "name": "winston-seq",
-  "version": "0.1.0",
+  "name": "winston-seq2",
+  "version": "0.0.0",
   "description": "A Seq transport for Winston",
   "main": "lib/index.js",
   "scripts": {
@@ -26,9 +26,8 @@
     "seq"
   ],
   "author": {
-    "name": "SuperPaintman",
-    "email": "SuperPaintmanDeveloper@gmail.com",
-    "url": "https://superpaintman.com/"
+    "name": "Leon Talbert",
+    "email": "leon.talbert@gmail.com"
   },
   "files": [
     "LICENSE",
@@ -39,7 +38,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "seq-logging": "0.1.6",
+    "seq-logging": "0.4.0",
     "winston": "2.3.1"
   },
   "devDependencies": {
@@ -49,7 +48,6 @@
     "@types/winston": "2.3.3",
     "chai": "4.0.2",
     "conventional-changelog-lint": "2.1.0",
-    "husky": "0.14.3",
     "import-from": "2.1.0",
     "istanbul": "0.4.5",
     "mocha": "3.4.2",
@@ -60,6 +58,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SuperPaintman/winston-seq.git"
+    "url": "git+https://github.com/LeonmanRolls/winston-seq"
   }
 }
