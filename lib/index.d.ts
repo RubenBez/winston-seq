@@ -1,5 +1,5 @@
 /** Imports */
-import * as Transport from 'winston-transport';
+import Transport from 'winston-transport';
 import { ISeqLevels } from './seq-logging';
 /** Interfaces */
 export declare type IWinstonLogMeta = any;
