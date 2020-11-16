@@ -1,6 +1,6 @@
 'use strict';
 /** Imports */
-import * as Transport from 'winston-transport';
+import Transport from 'winston-transport';
 import SeqLogger, { ISeqLogger, ISeqEvent, ISeqLevels } from './seq-logging';
 
 
