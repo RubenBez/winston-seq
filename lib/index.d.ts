@@ -1,10 +1,10 @@
 /** Imports */
-import Transport, { TransportStreamOptions } from 'winston-transport';
+import * as Transport from 'winston-transport';
 import { ISeqLevels } from './seq-logging';
 /** Interfaces */
 export declare type IWinstonLogMeta = any;
 export declare type IWinstonLogCallback = (err?: any, res?: any) => void;
-export interface ISeqOption extends TransportStreamOptions {
+export interface ISeqOption extends Transport.TransportStreamOptions {
     serverUrl?: string;
     apiKey?: string;
     maxBatchingTime?: number;
