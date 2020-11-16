@@ -1,7 +1,6 @@
 'use strict';
 /** Imports */
-import { transports, TransportInstance, Transport }     from 'winston';
-
+import * as Transport from 'winston-transport';
 import SeqLogger, { ISeqLogger, ISeqEvent, ISeqLevels } from './seq-logging';
 
 
@@ -17,7 +16,7 @@ interface IFormattedMeta {
   errors:     IFormattedMetaError[];
 }
 
-export interface ISeqOption {
+export interface ISeqOption extends Transport.TransportStreamOptions {
   serverUrl?:       string;
   apiKey?:          string;
   maxBatchingTime?: number;
@@ -26,19 +25,7 @@ export interface ISeqOption {
   levelMapper?(level: string): ISeqLevels;
 }
 
-export interface ISeqTransportInstance extends TransportInstance {
-  new (options?: ISeqOption): ISeqTransportInstance;
-}
-
-declare module 'winston' {
-  // tslint:disable-next-line: interface-name
-  interface Transports {
-    Seq: ISeqTransportInstance;
-  }
-}
-
-
-export class Seq extends Transport implements ISeqTransportInstance {
+export class Seq extends Transport {
   readonly name = 'seq';
 
   serverUrl?:       string;
@@ -65,13 +52,13 @@ export class Seq extends Transport implements ISeqTransportInstance {
     this.connect();
   }
 
-  log(level: string, msg: string, meta: IWinstonLogMeta, callback: IWinstonLogCallback): void {
+  log(info: any, callback: IWinstonLogCallback): void {
     const seqLog: ISeqEvent = {
-      level:           this.levelMapper(level),
-      messageTemplate: msg
+      level:           this.levelMapper(info.level),
+      messageTemplate: info.message
     };
 
-    const { properties, errors } = this._formatMeta(meta);
+    const { properties, errors } = this._formatMeta(info.meta);
 
     if (errors.length !== 0) {
       seqLog.exception = errors
@@ -85,7 +72,7 @@ export class Seq extends Transport implements ISeqTransportInstance {
 
     this._seq.emit(seqLog);
 
-    this.emit('logged');
+    this.emit('logged', info);
     callback(null, true);
   }
 
@@ -258,8 +245,3 @@ export class Seq extends Transport implements ISeqTransportInstance {
   }
 }
 
-/**
- * Define a getter so that `winston.transports.Seq`
- * is available and thus backwards compatible.
- */
-transports.Seq = Seq as any; /** @todo */

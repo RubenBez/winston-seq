@@ -1,6 +1,6 @@
 {
-  "name": "winston-seq2",
-  "version": "0.0.0",
+  "name": "@rubenbez/winston-seq",
+  "version": "1.0.0",
   "description": "A Seq transport for Winston",
   "main": "lib/index.js",
   "scripts": {
@@ -26,8 +26,8 @@
     "seq"
   ],
   "author": {
-    "name": "Leon Talbert",
-    "email": "leon.talbert@gmail.com"
+    "name": "Ruben Bezuidenhout",
+    "email": "ruben@bitcube.tech"
   },
   "files": [
     "LICENSE",
@@ -38,14 +38,13 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "seq-logging": "0.4.0",
-    "winston": "2.3.1"
+    "seq-logging": "0.4.6",
+    "winston": "3.3.3"
   },
   "devDependencies": {
     "@types/chai": "4.0.1",
     "@types/mocha": "2.2.41",
-    "@types/node": "8.0.9",
-    "@types/winston": "2.3.3",
+    "@types/node": "12.7.12",
     "chai": "4.0.2",
     "conventional-changelog-lint": "2.1.0",
     "import-from": "2.1.0",
@@ -54,10 +53,10 @@
     "source-map-support": "0.4.15",
     "tslint": "5.5.0",
     "tslint-eslint-rules": "4.1.1",
-    "typescript": "2.4.1"
+    "typescript": "4.0.5"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/LeonmanRolls/winston-seq"
+    "url": "git:https://github.com/RubenBez/winston-seq.git"
   }
 }

@@ -4,4 +4,4 @@
 # NPM
 node_modules/
 
-# Lib
+yarn.lock
