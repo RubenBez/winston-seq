@@ -1,6 +1,6 @@
 'use strict';
 /** Imports */
-import Transport from 'winston-transport';
+import Transport, { TransportStreamOptions } from 'winston-transport';
 import SeqLogger, { ISeqLogger, ISeqEvent, ISeqLevels } from './seq-logging';
 
 
@@ -16,7 +16,7 @@ interface IFormattedMeta {
   errors:     IFormattedMetaError[];
 }
 
-export interface ISeqOption extends Transport.TransportStreamOptions {
+export interface ISeqOption extends TransportStreamOptions {
   serverUrl?:       string;
   apiKey?:          string;
   maxBatchingTime?: number;
@@ -25,7 +25,7 @@ export interface ISeqOption extends Transport.TransportStreamOptions {
   levelMapper?(level: string): ISeqLevels;
 }
 
-export class Seq extends Transport {
+export default class SeqTransport extends Transport {
   readonly name = 'seq';
 
   serverUrl?:       string;
